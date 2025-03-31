@@ -3,18 +3,13 @@ import { ClockItemViewPropsType} from "../common/ClockComponentsTypes";
 import { ClockNumber } from "./ClockNumber";
 import numsCoordinates from "../assets/nums-coordinates.json";
 
-export const ClockItemView = ({infoClock, elem, setInfoClock}: ClockItemViewPropsType) => {
-
-  const [date, setDate] = useState(new Date);
+export const ClockItemView = ({date, infoClock, elem, setInfoClock}: ClockItemViewPropsType) => {
+  const [now, setNow] = useState(new Date);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setDate(new Date), 1000);
-    return () => {
-      clearTimeout(timeout);
-    }
+    setNow(date);
   }, [date]);
-  
-  const now = new Date();
+
   const seconds = now.getSeconds();
   const minutes = now.getMinutes();
   const offset = Number(elem.timeZoneOffset);

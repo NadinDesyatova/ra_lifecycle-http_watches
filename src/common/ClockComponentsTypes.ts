@@ -14,7 +14,13 @@ export type ClockMainPropsType = {
   setInfoClock: SetInfoClockType
 };
 
+export type ClockListPropsType = {
+  infoClock: InfoClockType,
+  setInfoClock: SetInfoClockType
+};
+
 export type ClockItemViewPropsType = {
+  date: Date,
   infoClock: InfoClockType,
   elem: ClockUseStateType,
   setInfoClock: SetInfoClockType
