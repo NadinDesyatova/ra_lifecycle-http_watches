@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { ClockItemView } from "./ClockItemView";
-import { ClockListPropsType } from "../common/ClockComponentsTypes";
+import { ClockMainPropsType } from "../common/ClockComponentsTypes";
 
 
-export const ClocksListView = ({infoClock, setInfoClock}: ClockListPropsType) => {
+export const ClocksListView = ({infoClock, setInfoClock}: ClockMainPropsType) => {
   const [date, setDate] = useState(new Date);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    const timeout = window.setTimeout(() => {
       setDate(new Date);
     }, 1000);
 
     return () => {      
-      clearTimeout(timeout);
+      window.clearTimeout(timeout);
     };
   }, [date]);
   
