@@ -9,25 +9,31 @@ export const ClocksListView = ({infoClock, setInfoClock}: ClockMainPropsType) =>
   useEffect(() => {
     const timeout = window.setTimeout(() => {
       setDate(new Date);
+      console.log(timeout);
     }, 1000);
 
     return () => {      
       window.clearTimeout(timeout);
+      console.log(timeout);
     };
   }, [date]);
   
   return (
-    <div className="clocks-list">
-      {
-        infoClock.map((elem, i) => {
-          return <ClockItemView
-            date={date}
-            key={i}
-            infoClock={infoClock}
-            elem={elem}
-            setInfoClock={setInfoClock} />;
-        })
+    <>
+      {infoClock.length !== 0 && 
+        <ul className="clocks-list">
+          {
+            infoClock.map((elem, i) => {
+              return <ClockItemView
+                date={date}
+                key={i}
+                infoClock={infoClock}
+                elem={elem}
+                setInfoClock={setInfoClock} />;
+            })
+          }
+        </ul>
       }
-    </div>
-  );
+    </>
+  ) ;
 }

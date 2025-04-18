@@ -29,7 +29,7 @@ export const ClockItemView = ({date, infoClock, elem, setInfoClock}: ClockItemVi
   };
 
   return (
-    <div className="clock-container">
+    <li className="clock-container">
       <div className="clock-header">
         <div>{elem.name}</div>
         <button className="close-button" onClick={onClickCloseButton}>x</button>
@@ -42,6 +42,6 @@ export const ClockItemView = ({date, infoClock, elem, setInfoClock}: ClockItemVi
           <div className="hand second-hand" style={{transform: `rotate(${secondDeg}deg)`}}></div>
         </div>
       </div>
-    </div>
+    </li>
   );
 };
